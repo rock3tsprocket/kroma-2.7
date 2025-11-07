@@ -4,7 +4,8 @@ import ctypes
 import functools
 
 
-def enable_ansi() -> bool:
+def enable_ansi():
+    # type: () -> bool
     """
     (Windows-only)
 
