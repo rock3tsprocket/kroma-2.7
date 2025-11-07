@@ -8,6 +8,13 @@ class StyleType(Enum):
     BACKGROUND = auto()
 
 
+class TextFormat(Enum):
+    BOLD = f"{ANSI}1m"
+    ITALIC = f"{ANSI}3m"
+    UNDERLINE = f"{ANSI}4m"
+    STRIKETHROUGH = f"{ANSI}9m"
+
+
 class ANSIColors(Enum):
     BLACK = f"{ANSI}30m"
     RED = f"{ANSI}31m"
