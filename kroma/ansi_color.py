@@ -3,14 +3,15 @@ from .utils import _get_ansi_color_code, _apply_text_formatting, _get_ansi_color
 
 
 def style(
-    text: str,
-    foreground: ANSIColors | None = None,
-    background: ANSIColors | None = None,
-    bold: bool = False,
-    italic: bool = False,
-    underline: bool = False,
-    strikethrough: bool = False
-) -> str:
+    text, # type: str
+    foreground = None, # type: ANSIColors | None
+    background = None, # type: ANSIColors | None
+    bold = False, # type: bool
+    italic = False, # type: bool
+    underline = False, # type: bool
+    strikethrough = False, # type: bool
+):
+    # type: (...) -> str
     formats = []
     if bold:
         formats.append(TextFormat.BOLD)

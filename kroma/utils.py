@@ -6,18 +6,21 @@ from .gv import RESET, ANSI
 ansi_supported = _ansi_supported()
 
 
-def _get_color_if_supported(color: str) -> str:
+def _get_color_if_supported(color):
+    # type: (str) -> str
     if ansi_supported:
         return color
     return ''
 
 
-def _fix_text(text: str) -> str:
+def _fix_text(text):
+    # type: (str) -> str
     # i forget what i was gonna do here lol
     return text
 
 
-def _convert_html_hex_to_ansi(text: str, color: HTMLColors | str, type: StyleType) -> str:
+def _convert_html_hex_to_ansi(text, color, type):
+    # type: (str, HTMLColors | str, StyleType) -> str
     if isinstance(color, str):
         # color is a HEX code
         if "#" in color:
@@ -45,18 +48,21 @@ def _convert_html_hex_to_ansi(text: str, color: HTMLColors | str, type: StyleTyp
     return _get_color_if_supported(ansi_color) + _fix_text(text) + _get_color_if_supported(RESET)
 
 
-def _get_ansi_color_code(text: str, color: ANSIColors, type: StyleType) -> str:
+def _get_ansi_color_code(text, color, type):
+    # type: (str, ANSIColors, StyleType) -> str
     return _get_color_if_supported(color.value) + _fix_text(text) + _get_color_if_supported(RESET)
 
 
-def _get_ansi_color_code_with_formatting(text: str, color: ANSIColors, type: StyleType, formats: list[TextFormat] | None = None) -> str:
+def _get_ansi_color_code_with_formatting(text, color, type, formats = None):
+    # type: (str, ANSIColors, StypeType, list[TextFormat] | None) -> str
     color_code = _get_color_if_supported(color.value)
     format_codes = "".join([_get_color_if_supported(fmt.value) for fmt in formats]) if formats else ""
     reset_code = _get_color_if_supported(RESET)
     return color_code + format_codes + _fix_text(text) + reset_code
 
 
-def _convert_html_hex_to_ansi_with_formatting(text: str, color: HTMLColors | str, type: StyleType, formats: list[TextFormat] | None = None) -> str:
+def _convert_html_hex_to_ansi_with_formatting(text, color, type, formats = None):
+    # type: (str, HTMLColors | str, StyleType, list[TextFormat] | None) -> str
     if not formats:
         return _convert_html_hex_to_ansi(text, color, type)
 
@@ -72,7 +78,8 @@ def _convert_html_hex_to_ansi_with_formatting(text: str, color: HTMLColors | str
     return color_code + format_codes + _fix_text(text) + reset_code
 
 
-def _apply_text_formatting(text: str, formats: list[TextFormat] | None = None) -> str:
+def _apply_text_formatting(text, formats = None):
+    # type: (str, list[TextFormat] | None) -> str
     if not formats:
         return text
 

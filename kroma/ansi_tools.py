@@ -22,7 +22,8 @@ def enable_ansi() -> bool:
         return False
 
 
-def supports_ansi(vt_enabled: bool) -> bool:
+def supports_ansi(vt_enabled):
+    # type: (bool) -> bool
     if os.getenv('NO_COLOR'):
         return False
 
@@ -43,7 +44,8 @@ def supports_ansi(vt_enabled: bool) -> bool:
 
 
 @functools.lru_cache(maxsize=None)
-def ansi_supported() -> bool:
+def ansi_supported():
+    # type: () -> bool
     vt_enabled = False
     if os.name == 'nt':
         vt_enabled = enable_ansi()

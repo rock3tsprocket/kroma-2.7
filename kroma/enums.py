@@ -35,11 +35,11 @@ class ANSIColors(Enum):
     BRIGHT_WHITE = f"{ANSI}97m"
 
 
-class RGB(NamedTuple):
-    r: int
-    g: int
-    b: int
-
+RGB = NamedTuple("RGB", [
+    ("r", int),
+    ("g", int),
+    ("b", int)
+    ])
 
 class HTMLColors(Enum):
     # basic colors

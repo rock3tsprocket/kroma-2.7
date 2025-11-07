@@ -3,14 +3,15 @@ from .utils import _convert_html_hex_to_ansi, _apply_text_formatting, _convert_h
 
 
 def style(
-    text: str,
-    foreground: str | HTMLColors | None = None,
-    background: str | HTMLColors | None = None,
-    bold: bool = False,
-    italic: bool = False,
-    underline: bool = False,
-    strikethrough: bool = False
-) -> str:
+    text, # type: (str)
+    foreground = None, # type: str | HTMLColors | None
+    background = None, # type: str | HTMLColors | None
+    bold = False, # type: bool
+    italic = False, # type: bool
+    underline = False, # type: bool
+    strikethrough = False # type: bool
+):
+    # type: (...) -> str
     formats = []
     if bold:
         formats.append(TextFormat.BOLD)
