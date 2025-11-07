@@ -1,38 +1,38 @@
-from enum import Enum, auto
+from enum import Enum
 from typing import NamedTuple
 from .gv import ANSI
 
 
 class StyleType(Enum):
-    FOREGROUND = auto()
-    BACKGROUND = auto()
+    FOREGROUND = 0
+    BACKGROUND = 1
 
 
 class TextFormat(Enum):
-    BOLD = f"{ANSI}1m"
-    ITALIC = f"{ANSI}3m"
-    UNDERLINE = f"{ANSI}4m"
-    STRIKETHROUGH = f"{ANSI}9m"
+    BOLD = ANSI+"1m"
+    ITALIC = ANSI+"3m"
+    UNDERLINE = ANSI+"4m"
+    STRIKETHROUGH = ANSI+"9m"
 
 
 class ANSIColors(Enum):
-    BLACK = f"{ANSI}30m"
-    RED = f"{ANSI}31m"
-    GREEN = f"{ANSI}32m"
-    YELLOW = f"{ANSI}33m"
-    BLUE = f"{ANSI}34m"
-    MAGENTA = f"{ANSI}35m"
-    CYAN = f"{ANSI}36m"
-    WHITE = f"{ANSI}37m"
+    BLACK = ANSI+"30m"
+    RED = ANSI+"31m"
+    GREEN = ANSI+"32m"
+    YELLOW = ANSI+"33m"
+    BLUE = ANSI+"34m"
+    MAGENTA = ANSI+"35m"
+    CYAN = ANSI+"36m"
+    WHITE = ANSI+"37m"
 
-    BRIGHT_BLACK = f"{ANSI}90m"
-    BRIGHT_RED = f"{ANSI}91m"
-    BRIGHT_GREEN = f"{ANSI}92m"
-    BRIGHT_YELLOW = f"{ANSI}93m"
-    BRIGHT_BLUE = f"{ANSI}94m"
-    BRIGHT_MAGENTA = f"{ANSI}95m"
-    BRIGHT_CYAN = f"{ANSI}96m"
-    BRIGHT_WHITE = f"{ANSI}97m"
+    BRIGHT_BLACK = ANSI+"90m"
+    BRIGHT_RED = ANSI+"91m"
+    BRIGHT_GREEN = ANSI+"92m"
+    BRIGHT_YELLOW = ANSI+"93m"
+    BRIGHT_BLUE = ANSI+"94m"
+    BRIGHT_MAGENTA = ANSI+"95m"
+    BRIGHT_CYAN = ANSI+"96m"
+    BRIGHT_WHITE = ANSI+"97m"
 
 
 RGB = NamedTuple("RGB", [
